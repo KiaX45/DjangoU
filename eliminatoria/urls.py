@@ -16,7 +16,12 @@ Including another URLconf
 """
 from django.contrib import admin
 from django.urls import path
+from album import views
 
 urlpatterns = [
     path('admin/', admin.site.urls),
+    path('teams/',views.TeamListView.as_view(),name='team-list'),
+    path('players/',views.PlayerListView.as_view(),name='player-list'),
+    path('team/<int:pk>/detail/',views.TeamDetailView.as_view(),name='team-detail' ),
+    path('player/<int:pk>/detail/',views.PlayerDetailView.as_view(),name='player-detail' ),
 ]
