@@ -1,0 +1,64 @@
+{% extends 'base.html' %}
+
+
+{% load static %}
+
+{% block section %}
+    <h2>Create Players</h2>
+    <hr>
+{% endblock section %}
+
+
+{% block maincontent %}
+<form action="/player/create/" method="POST"  enctype="multipart/form-data">
+
+    {% csrf_token %}
+
+    <div class="form-group">
+        <label for="{{form.first_name.id_for_label}}">Nombre</label>
+        {{ form.first_name }}
+    </div>
+
+    <div class="form-group">
+        <label for="{{form.last_name.id_for_label}}">Apellido</label>
+        {{ form.last_name }}
+    </div>
+    
+    <div class="form-group">
+        <label for="{{form.weight.id_for_label}}">Peso</label>
+        {{ form.weight }}
+    </div>
+
+    <div class="form-group">
+        <label for="{{form.height.id_for_label}}">Altura</label>
+        {{ form.height }}
+    </div>
+
+    <div class="form-group">
+        <label for="{{form.photo.id_for_label}}">Foto</label>
+        {{ form.photo }}
+
+    </div>
+    
+    <div class="form-group">
+        <label for="{{form.comment.id_for_label}}">Comentario</label>
+        {{ form.comment }}
+    </div>
+    
+    <div>
+
+        <label for="{{form.team.id_for_label}}">Equipo</label>
+        {{ form.team }}
+    </div>
+
+
+    <button type="submit" class="btn btn-primary">Guardar</button>
+        
+
+    
+
+
+
+</form>
+
+{% endblock maincontent %}
